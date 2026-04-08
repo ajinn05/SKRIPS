@@ -257,6 +257,8 @@ cd $SKRIPS_DIR/coupler/L4.C1.coupled_nwp/download_wind
 
 <details>
 <summary>download.sh</summary>
+
+```
 #!/bin/bash -l
 
 DATE1=20160903
@@ -280,11 +282,14 @@ sed -e "s/DATE1/${DATE1}/g;s/DATE2/${DATE2}/g;" processERA5.mod.py > processERA5
 python processERA5_new.py
 
 exit 0
+```
 </details>
 
 <details>
 <summary>processERA5.mod.py</summary>
-    ```python
+
+```python
+
     import numpy as np
     from netCDF4 import Dataset
     import os
@@ -347,7 +352,7 @@ exit 0
     print("Created zero current file: " + curr_out)
 
     src.close()
-    ```
+```
 </details>
 
 ### runCase.init - wave-uncoupeld case
@@ -374,9 +379,11 @@ Please check /data5/SKRIPS-2.0.1/L4.C1.coupled_nwp/runCase
 ```
 qsub run_skrips.pbs
 ```
+
 <details>
 <summary>run_skrips.pbs</summary>
-    ```bash
+
+```bash
     #!/bin/bash
 
     #PBS -l nodes=3:ppn=27,walltime=48:00:00
@@ -404,7 +411,7 @@ qsub run_skrips.pbs
     eval $EXE
 
     echo "Done without any issue. Run ww3_ounf"; exit;
-    ```
+```
 </details>
 
 ## 7. Using Cartesian coordinate
